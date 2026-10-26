@@ -21,11 +21,14 @@ A Man-in-the-Middle (MITM) attack occurs when an adversary secretly intercepts a
 
 Primary Attack Factors:
 Interception: Routing victim traffic through an attacker-controlled host via layer-2 or layer-3 spoofing.
+
 Manipulation/Decryption: Modifying network payloads or downgrading encrypted connections to plaintext.
 
 Attack Vectors & Forensics Indicators Analyzed:
 ARP Spoofing: Attacker sends unsolicited or forged ARP replies (arp.opcode == 2) associating their MAC address with the default gateway IP (192.168.10.1), leading to duplicate MAC-to-IP mappings and abnormal ARP traffic volume.
+
 DNS Spoofing: Injecting forged DNS responses from an unauthorized source IP containing malicious A-records to redirect victim traffic away from legitimate domains (e.g., corp-login.acme-corp.local).
+
 SSL Stripping: Intercepting secure HTTPS requests and downgrading them to unencrypted HTTP connections, allowing the attacker to harvest plaintext form data and credentials via HTTP POST streams.
 
 🛠️ Tools & Technologies Used
