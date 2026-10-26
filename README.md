@@ -43,11 +43,14 @@ http && ip.src == ... && ip.dst == ... (HTTP Session Streams)
 🔍 Key Investigation Areas
 
 ARP Spoofing & Cache Poisoning Detection:
+
 Identified the legitimate gateway MAC address (02:aa:bb:cc:00:01) vs. the attacker's impersonating MAC address (02:fe:fe:fe:55:55).
 Isolated 2 gratuitous ARP replies and identified a total of 14 spoofed ARP packets originating from the attacker.
+
 DNS Spoofing & Traffic Redirection:
 Analyzed 211 total DNS responses for corp-login.acme-corp.local.
 Filtered responses originating from unauthorized resolver IPs (excluding 8.8.8.8) to uncover the attacker's forged DNS response returning destination IP 192.168.10.55.
+
 SSL Stripping & Credential Harvesting:
 Isolated HTTP POST requests transmitted over unencrypted sessions redirected to the attacker's host (192.168.10.55).
 Reconstructed the underlying TCP stream to extract victim credentials in plain text (Secret123!).
